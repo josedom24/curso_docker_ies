@@ -1,0 +1,28 @@
+version: '3.1'
+services:
+  app:
+    container_name: contenedor_php
+    image: josedom24/aplicacion_php
+    restart: always
+    environment:
+      DB_HOST: servidor_mysql
+      DB_USER: user1
+      DB_PASS: asdasd
+      DB_NAME: usuarios
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+  db:
+    container_name: servidor_mysql
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_DATABASE: usuarios
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: asdasd
+      MYSQL_ROOT_PASSWORD: asdasd
+    volumes:
+      - mariadb_data:/var/lib/mysql
+volumes:
+    mariadb_data:
