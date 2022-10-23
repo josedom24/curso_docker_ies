@@ -2,7 +2,7 @@
 
 Curso sobre contenedores Docker.
 
-1. Introducción a los contenedores Docker
+## 1. Introducción a los contenedores Docker
 	* Introducción a Docker
 	* [Instalación de docker](modulo1/instalacion.md)
 	* [El "Hola Mundo" de docker](modulo1/holamundo.md)
