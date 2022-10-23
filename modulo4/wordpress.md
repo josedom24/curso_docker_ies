@@ -2,7 +2,7 @@
 
 En este ejemplo vamos a desplegar con docker-compose la aplicación WordPress + MariaDB, que estudiamos en el módulo de redes: [Ejemplo 3: Despliegue de Wordpress + mariadb ](../sesion3/wordpress.html).
 
-Puedes encontrar los ficheros `docker-compose.yml` en este [directorio](https://github.com/josedom24/curso_docker_2022/tree/main/ejemplos/sesion4/ejemplo3) del repositorio. 
+Puedes encontrar los ficheros `docker-compose.yml` en este [directorio](https://github.com/josedom24/curso_doocker_ies/tree/main/ejemplos/sesion4/ejemplo3) del repositorio. 
 
 
 ## Utilizando volúmenes docker
