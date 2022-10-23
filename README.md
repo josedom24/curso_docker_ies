@@ -19,3 +19,33 @@ Curso sobre contenedores Docker.
 * Creación de contenedores desde imágenes
 * Ejemplo: Desplegando la aplicación mediawiki
 
+## 3. Almacenamiento y redes en Docker 
+* Volúmenes docker y bind mount
+* Asociando almacenamiento a los contenedores: volúmenes Docker
+* Asociando almacenamiento a los contenedores: bind mount
+* Redes en Docker
+* Redes definidas por el usuario
+* Ejemplo 1: Despliegue de la aplicación Guestbook
+* Ejemplo 2: Despliegue de la aplicación Temperaturas
+* Ejemplo 3: Despliegue de Wordpress + mariadb
+* Ejemplo 4: Despliegue de tomcat + nginx
+
+## 4. Creando escenarios multicontenedor con docker-compose 
+* Instalación de docker-compose
+* El fichero docker-compose.yml
+* El comando docker-compose
+* Almacenamiento con docker-compose
+* Ejemplo 1: Despliegue de la aplicación guestbook
+* Ejemplo 2: Despliegue de la aplicación Temperaturas
+* Ejemplo 3: Despliegue de WordPress + Mariadb
+* Ejemplo 4: Despliegue de tomcat + nginx
+
+## 5. Creación de imágenes en docker 
+* Creación de imágenes a partir de un contenedor
+* Creación de imágenes a partir de un Dockerfile
+* Distribución de imágenes
+* Ejemplo 1: Construcción de imágenes con una página estática
+* Ejemplo 2: Construcción de imágenes con una una aplicación PHP
+* Ejemplo 3: Construcción de imágenes con una una aplicación Python
+* Ejemplo 4: Construcción de imágenes configurables con variables de entorno
+* Ciclo de vida de las aplicaciones
