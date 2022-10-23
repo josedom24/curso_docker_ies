@@ -1,8 +1,8 @@
 # Ejemplo 4: Despliegue de tomcat + nginx 
 
-En este ejemplo vamos a desplegar con docker-compose la aplicación Java con Tomcat y nginx como proxy inverso que vimos en la sesión anterior en el [Ejemplo 4: Despliegue de tomcat + nginx ](../sesion3/tomcat.html).
+En este ejemplo vamos a desplegar con docker-compose la aplicación Java con Tomcat y nginx como proxy inverso que vimos en la sesión anterior en el [Ejemplo 4: Despliegue de tomcat + nginx ](../modulo3/tomcat.md).
 
-Puedes encontrar el fichero `docker-compose.yml` en en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/sesion4/ejemplo4) del repositorio. 
+Puedes encontrar el fichero `docker-compose.yml` en en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo4/ejemplo4) del repositorio. 
 
 El fichero `docker-compose.yaml` sería:
 
