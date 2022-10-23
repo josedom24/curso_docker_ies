@@ -1,6 +1,6 @@
 # Ejemplo 4: Construcción de imágenes configurables con variables de entorno
 
-En este último ejemplo vamos a construir una imagen de una aplicación PHP que necesita conectarse a una base de datos mariadb para guardar o leer información. Por lo tanto, vamos a construir la imagen para que podamos indicar variables de entorno para configurar las credenciales de acceso a la base de datos. Puedes encontrar los ficheros en este [directorio](https://github.com/josedom24/curso_doocker_ies/tree/main/ejemplos/sesion5/ejemplo4) del repositorio.
+En este último ejemplo vamos a construir una imagen de una aplicación PHP que necesita conectarse a una base de datos mariadb para guardar o leer información. Por lo tanto, vamos a construir la imagen para que podamos indicar variables de entorno para configurar las credenciales de acceso a la base de datos. Puedes encontrar los ficheros en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/sesion5/ejemplo4) del repositorio.
 
 ## Aplicación PHP
 
