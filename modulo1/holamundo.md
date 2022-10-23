@@ -64,3 +64,5 @@ o con su nombre:
 ```bash
 $ docker rm elastic_johnson
 ```
+
+* [Ejecución simple de contenedores](contenedor.md)
