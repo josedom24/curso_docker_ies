@@ -113,4 +113,6 @@ Tanto al crear un contenedor con el flag `--network`, como con la instrucción `
 
 Para más información sobre las redes: [Networking overview](https://docs.docker.com/network/).
 
+---
+
 * [Ejemplo 1: Despliegue de la aplicación Guestbook](guestbook.md)

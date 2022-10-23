@@ -72,5 +72,7 @@ $ docker inspect ubuntu:latest
 ...
 ```
 
+---
+
 * [Creación de contenedores desde imágenes](creacion.md)
 

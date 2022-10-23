@@ -71,4 +71,6 @@ ec77cfd20583        bridge              bridge              local
 
 * La red **none** no configurará ninguna IP para el contenedor y no tiene acceso a la red externa ni a otros contenedores. Tiene la dirección loopback y se puede usar para ejecutar trabajos por lotes.
 
+---
+
 * [Redes definidas por el usuario](redes_usuario.md)

@@ -24,6 +24,7 @@ Hay que tener en cuenta que un contenedor que esta ejecutándose no puede ser el
 ```bash
 $ docker rm -f contenedor2
 ```
+---
 
 * [Creando un contenedor con un servidor web](web.md)
 	

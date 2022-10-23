@@ -47,4 +47,6 @@ $ curl http://localhost:8080
 
 Por último, indicar que si nuestra carpeta origen no existe y hacemos un bind mount con `-v`, esa carpeta se creará pero lo que tendremos en el contenedor es una carpeta vacía. 
 
+---
+
 * [Redes en Docker](redes.md)

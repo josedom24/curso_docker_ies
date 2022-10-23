@@ -17,5 +17,6 @@ Las principales instrucciones para trabajar con imágenes son:
     * El ENTRYPOINT que es lo que se ejecuta al hacer `docker run`.
     * Las capas.
     * Y muchas más cosas....
+---
 
 * [¿Cómo se organizan las imágenes?](organizacion.md)

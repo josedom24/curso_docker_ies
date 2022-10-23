@@ -29,4 +29,6 @@ Algunas observaciones:
 
 ![temperaturas](img/temperaturas.png)
 
+---
+
 * [Ejemplo 3: Despliegue de Wordpress + mariadb](wordpress.md)

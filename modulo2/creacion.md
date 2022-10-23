@@ -26,4 +26,6 @@ Otro ejemplo: la imagen `httpd:2.4` ejecuta un servidor web por defecto, por lo 
 $ docker run -d --name my-apache-app -p 8080:80 httpd:2.4
 ```
 
+---
+
 * [Ejemplo: Desplegando la aplicación mediawiki](mediawiki.md)

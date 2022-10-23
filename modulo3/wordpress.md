@@ -44,4 +44,6 @@ Algunas observaciones:
 
 ![wordpress](img/wp.png)
 
+---
+
 * [Ejemplo 4: Despliegue de tomcat + nginx](tomcat.md)

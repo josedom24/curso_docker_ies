@@ -63,4 +63,6 @@ Y al acceder la ip de nuestro host:
 
 ![tomcat](img/tomcat.png)
 
+---
+
 * [Módulo 4: Creando escenarios multicontenedor con docker-compose](../../..#4-creando-escenarios-multicontenedor-con-docker-compose)

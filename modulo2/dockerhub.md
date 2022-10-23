@@ -15,4 +15,6 @@ El nombre de una imagen suele estar formado por tres partes:
 * `nombre`: Nombre significativo de la imagen.
 * `etiqueta`: Nos permite versionar las imágenes. De esta manera controlamos los cambios que se van produciendo en ella. Si no indicamos etiqueta, por defecto se usa la etiqueta `latest`, por lo que la mayoría de las imágenes tienen una versión con este nombre.
 
+---
+
 * [Gestión de imágenes](gestion.md)

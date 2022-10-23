@@ -59,5 +59,6 @@ En realidad, todas las imágenes tienen definidas un proceso que se ejecuta, en 
 ```bash
 $ docker run -it --name contenedor1 ubuntu
 ```
+---
 
 * [Creando un contenedor demonio](demonio.md)

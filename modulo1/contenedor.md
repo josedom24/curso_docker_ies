@@ -28,6 +28,7 @@ REPOSITORY          TAG                 IMAGE ID           CREATED             S
 ubuntu              latest              f63181f19b2f        7 days ago          72.9MB
 hello-world         latest              bf756fb1ae65        13 months ago       13.3kB
 ```
+---
 
 * [Ejecutando un contenedor interactivo](interactivo.md)
 	

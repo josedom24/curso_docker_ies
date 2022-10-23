@@ -46,6 +46,8 @@ Independientemente de cómo hayamos creado el fichero, podemos volver a acceder 
 
 ![web](img/web2.png)
 
+---
+
 * [Configuración de contenedores con variables de entorno](configuracion.md)
 
 

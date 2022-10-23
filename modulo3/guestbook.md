@@ -36,4 +36,6 @@ Algunas observaciones:
 
 ![guestbook](img/guestbook.png)
 
+---
+
 * [Ejemplo 2: Despliegue de la aplicación Temperaturas](temperaturas.md)
