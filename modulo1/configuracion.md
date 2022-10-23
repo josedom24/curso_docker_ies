@@ -95,4 +95,4 @@ Enter password:
 MariaDB [(none)]> 
 ```
 
-* [Módulo 2: Imágenes Docker](..#2-im%C3%A1genes-docker)
+* [Módulo 2: Imágenes Docker](../../..#2-im%C3%A1genes-docker)
