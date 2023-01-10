@@ -32,17 +32,16 @@ ec77cfd20583        bridge              bridge              local
     **Nota: Hemos usado la opción `--rm` para al finalizar de ejecutar el proceso, el contenedor se elimina.**
 
     En otra pestaña, podemos ejecutar esta instrucción para obtener la ip que se le ha asignado:
-    {% raw %}
     ```
     $ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' contenedor1
     172.17.0.2
     ```
-    {% endraw %}
     Obtenemos información del contenedor filtrando el json de salida para obtener la IPv4 que se le ha asignado.
 
     Observamos que el contenedor tiene una ip en la red `172.17.0.0/16`. Además podemos comprobar que se ha creado un `bridge` en el host, al que se conectan los contenedores:
 
     ```bash
+    $ apt update && apt install -y iproute2
     $ ip a
     ...
     5: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
