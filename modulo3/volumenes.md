@@ -26,9 +26,9 @@ Si elegimos conseguir la persistencia usando volúmenes estamos haciendo que los
 
 Algunos comando útiles para trabajar con volúmenes docker:
 
-* **docker volumen create**: Crea un volumen con el nombre indicado.
+* **docker volume create**: Crea un volumen con el nombre indicado.
 * **docker volume rm**: Elimina el volumen indicado.
-* **docker volumen prune**: Para eliminar los volúmenes que no están siendo usados por ningún contenedor.
+* **docker volume prune**: Para eliminar los volúmenes que no están siendo usados por ningún contenedor.
 * **docker volume ls**: Nos proporciona una lista de los volúmenes creados y algo de información adicional.
 * **docker volume inspect**: Nos dará una información mucho más detallada de el volumen que hayamos elegido.
 
