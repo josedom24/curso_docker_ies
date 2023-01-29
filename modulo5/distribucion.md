@@ -54,4 +54,4 @@ En este curso nos vamos a ocupar  únicamente de las dos primeras ya que la terc
 
 ---
 
-* [Ejemplo 1: Construcción de imágenes con una página estática](ejemplo1)
+* [Ejemplo 1: Construcción de imágenes con una página estática](ejemplo1.md)

@@ -73,4 +73,4 @@ Podemos acceder al fichero `info.php` para comprobar la versión de php que esta
 
 ---
 
-* [Ejemplo 3: Construcción de imágenes con una una aplicación Python](ejemplo3)
+* [Ejemplo 3: Construcción de imágenes con una una aplicación Python](ejemplo3.md)

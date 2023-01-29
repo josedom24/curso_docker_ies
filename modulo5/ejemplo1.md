@@ -86,4 +86,4 @@ $ docker run -d -p 80:80 --name ejemplo1 josedom24/ejemplo1:v3
 
 ---
 
-* [Ejemplo 2: Construcción de imágenes con una una aplicación PHP](ejemplo2)
+* [Ejemplo 2: Construcción de imágenes con una una aplicación PHP](ejemplo2.md)

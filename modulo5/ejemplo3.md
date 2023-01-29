@@ -50,4 +50,4 @@ Y acceder con el navegador a nuestra página:
 
 ---
 
-* [Ejemplo 4: Construcción de imágenes configurables con variables de entorno](ejemplo4)
+* [Ejemplo 4: Construcción de imágenes configurables con variables de entorno](ejemplo4.md)
