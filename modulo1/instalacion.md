@@ -14,11 +14,11 @@ Si queremos usar el cliente de docker con un usuario sin privilegios:
 usermod -aG docker usuario
 ```
 
-El caso de Debian 11 la versión de la comunidad es la siguiente:
+El caso de Debian 12 la versión de la comunidad es la siguiente:
 
 ```bash
 $ docker --version
-Docker version 20.10.5+dfsg1, build 55c4c88
+Docker version 20.10.24+dfsg1, build 297e128
 ```
 
 En es caso de Ubuntu 20.04, la versión será:
