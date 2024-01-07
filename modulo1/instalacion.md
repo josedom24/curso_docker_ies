@@ -45,8 +45,8 @@ Debes volver a iniciar una terminal con el usuario, o ejecutar el siguiente coma
 
 Y finalmente, comprobamos la versión con la que vamos a trabajar:
 
-    docker --version
-    Docker version 24.0.2, build cb74dfc
+        docker --version
+        Docker version 24.0.7, build afdd53b
 
 ## Instalación de la versión de la comunidad de docker: moby
 
