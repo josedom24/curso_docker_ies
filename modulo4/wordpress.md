@@ -1,13 +1,13 @@
 # Ejemplo 3: Despliegue de WordPress + Mariadb
 
-En este ejemplo vamos a desplegar con docker-compose la aplicación WordPress + MariaDB, que estudiamos en el módulo de redes: [Ejemplo 3: Despliegue de Wordpress + mariadb ](../modulo3/wordpress.md).
+En este ejemplo vamos a desplegar con Docker Compose la aplicación WordPress + MariaDB, que estudiamos en el módulo de redes: [Ejemplo 3: Despliegue de Wordpress + mariadb ](../modulo3/wordpress.md).
 
-Puedes encontrar los ficheros `docker-compose.yml` en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo4/ejemplo3) del repositorio. 
+Puedes encontrar los ficheros `docker-compose.yaml` en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo4/ejemplo3) del repositorio. 
 
 
 ## Utilizando volúmenes docker
 
-Por ejemplo para la ejecución de wordpress persistente con volúmenes docker podríamos tener un fichero `docker-compose.yml` con el siguiente contenido:
+Por ejemplo para la ejecución de wordpress persistente con volúmenes docker podríamos tener un fichero `docker-compose.yaml` con el siguiente contenido:
 
 ```yaml
 version: '3.1'
@@ -44,56 +44,53 @@ volumes:
 Para crear el escenario:
 
 ```bash
-$ docker-compose up -d
-Creating network "wp_default" with the default driver
-Creating servidor_wp    ... done
-Creating servidor_mysql ... done
+$ docker compose up -d
+[+] Running 5/5
+ ✔ Network wordpress_default          Created                                                    0.2s 
+ ✔ Volume "wordpress_wordpress_data"  Created                                                    0.0s 
+ ✔ Volume "wordpress_mariadb_data"    Created                                                    0.0s 
+ ✔ Container servidor_mysql           Started                                                    0.5s 
+ ✔ Container servidor_wp              Started                                                    0.5s 
 ```
 
 Para listar los contenedores:
 
 ```bash
-$ docker-compose ps
-     Name                   Command               tate         Ports       
----------------------------------------------------------------------------
-servidor_mysql   docker-entrypoint.sh mysqld      Up      306/tcp          
-servidor_wp      docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
+$ docker compose ps
+NAME             IMAGE       COMMAND                                     SERVICE     CREATED          STATUS          PORTS
+servidor_mysql   mariadb     "docker-entrypoint.sh mariadbd"             db          21 seconds ago   Up 19 seconds   3306/tcp
+servidor_wp      wordpress   "docker-entrypoint.sh apache2-foreground"   wordpress   21 seconds ago   Up 19 seconds   0.0.0.0:80->80/tcp, :::80->80/tcp
 ```
 
 Para parar los contenedores:
 
 ```bash
-$ docker-compose stop 
-Stopping servidor_wp    ... done
-Stopping servidor_mysql ... done
+$ docker compose stop
+[+] Stopping 2/2
+ ✔ Container servidor_mysql  Stopped                                                             0.9s 
+ ✔ Container servidor_wp     Stopped                                                             1.8s 
 ```
 
 Para borrar los contenedores:
 
 ```bash
-$ docker-compose rm
-Going to remove servidor_wp, servidor_mysql
-Are you sure? [yN] y
-Removing servidor_wp    ... done
-Removing servidor_mysql ... done
+$ docker compose rm
+? Going to remove servidor_wp, servidor_mysql Yes
+[+] Removing 2/0
+ ✔ Container servidor_mysql  Removed                                                             0.0s 
+ ✔ Container servidor_wp     Removed                                                             0.0s 
 ```
 
 Para eliminar el escenario (contenedores, red y volúmenes):
 
 ```bash
-$ docker-compose down -v
-Stopping servidor_mysql ... done
-Stopping servidor_wp    ... done
-Removing servidor_mysql ... done
-Removing servidor_wp    ... done
-Removing network volumen_default
-Removing volume volumen_wordpress_data
-Removing volume volumen_mariadb_data
+$ docker compose down -v
+...
 ```
 
 ## Utilizando bind-mount
 
-Por ejemplo para la ejecución de wordpress persistente con bind mount podríamos tener un fichero `docker-compose.yml` con el siguiente contenido:
+Por ejemplo para la ejecución de wordpress persistente con bind mount podríamos tener un fichero `docker-compose.yaml` con el siguiente contenido:
 
 ```yaml
 version: '3.1'

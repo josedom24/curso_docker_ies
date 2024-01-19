@@ -1,8 +1,8 @@
 # Ejemplo 4: Despliegue de tomcat + nginx 
 
-En este ejemplo vamos a desplegar con docker-compose la aplicación Java con Tomcat y nginx como proxy inverso que vimos en la sesión anterior en el [Ejemplo 4: Despliegue de tomcat + nginx ](../modulo3/tomcat.md).
+En este ejemplo vamos a desplegar con Docker Compose la aplicación Java con Tomcat y nginx como proxy inverso que vimos en la sesión anterior en el [Ejemplo 4: Despliegue de tomcat + nginx ](../modulo3/tomcat.md).
 
-Puedes encontrar el fichero `docker-compose.yml` en en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo4/ejemplo4) del repositorio. 
+Puedes encontrar el fichero `docker-compose.yaml` en en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo4/ejemplo4) del repositorio. 
 
 El fichero `docker-compose.yaml` sería:
 
@@ -29,20 +29,15 @@ Como podemos ver en el directorio donde tenemos guardado el `docker-compose.yaml
 Creamos el escenario:
 
 ```bash
-$ docker-compose up -d
-Creating network "ejemplo4_default" with the default driver
-Creating nginx  ... done
-Creating tomcat ... done
+$ docker compose up -d
+...
 ```
 
 Comprobar que los contenedores están funcionando:
 
 ```bash
-$ docker-compose ps
- Name               Command               State         Ports       
---------------------------------------------------------------------
-nginx    /docker-entrypoint.sh ngin ...   Up      0.0.0.0:80->80/tcp
-tomcat   catalina.sh run                  Up      8080/tcp          
+$ docker compose ps
+...
 ```
 
 Y acceder al puerto 80 de nuestra IP para ver la aplicación.

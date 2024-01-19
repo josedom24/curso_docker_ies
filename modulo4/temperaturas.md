@@ -31,22 +31,21 @@ Como hicimos en el ejemplo anterior, aunque no es necesario porque es valor por 
 Para crear el escenario:
 
 ```bash
-$ docker-compose up -d
-Creating network "temperaturas_default" with the default driver
-Creating temperaturas-backend ... done
-Creating temperaturas-frontend ... done
-
+$ docker compose up -d
+[+] Running 3/3
+ ✔ Network temperaturas_default     Created                                                      0.3s 
+ ✔ Container temperaturas-backend   Started                                                      0.2s 
+ ✔ Container temperaturas-frontend  Started                                                      0.2s 
 ```
 
 Para listar los contenedores:
 
 ```bash
-$ docker-compose ps
----------------------------------------------------------------------
-temperaturas-backend    python3 app.py   Up      5000/tcp            
-temperaturas-frontend   python3 app.py   Up      0.0.0.0:80->3000/tcp
+$ docker compose ps
+NAME                    IMAGE                         COMMAND            SERVICE    CREATED          STATUS          PORTS
+temperaturas-backend    iesgn/temperaturas_backend    "python3 app.py"   backend    20 seconds ago   Up 18 seconds   5000/tcp
+temperaturas-frontend   iesgn/temperaturas_frontend   "python3 app.py"   frontend   20 seconds ago   Up 17 seconds   0.0.0.0:8081->3000/tcp, :::8081->3000/tcp
 ```
-
 ---
 
 * [Ejemplo 3: Despliegue de Wordpress + mariadb](wordpress.md)

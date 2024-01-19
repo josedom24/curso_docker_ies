@@ -55,7 +55,7 @@ En los casos en que necesitamos modificar algo en la aplicación o hacer algún 
 En el directorio de trabajo encontramos:
 
 * `build`: Será el contexto necesario para crear la imagen de la aplicación.
-* El fichero `docker-compose.yml`: Para crear el escenario.
+* El fichero `docker-compose.yaml`: Para crear el escenario.
 
 ## El contexto (directorio build)
 
@@ -121,7 +121,7 @@ $ docker build -t josedom24/aplicacion_php .
 
 ## Despliegue de la aplicación 
 
-Usaremos el fichero `docker-compose.yml`:
+Usaremos el fichero `docker-compose.yaml`:
 
 ```yaml
 version: '3.1'
@@ -157,7 +157,7 @@ volumes:
 Y ya podemos levantar el escenario, ejecutando:
 
 ```bash
-$ docker-compose up -d
+$ docker compose up -d
 ```
 
 Y finalmente podemos acceder a la aplicación y comprobar que funciona.

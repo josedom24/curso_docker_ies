@@ -32,7 +32,7 @@ Curso sobre contenedores Docker.
 
 ## 4. Creando escenarios multicontenedor con Docker Compose 
 * [Creando escenarios multicontenedor con Docker Compose](modulo4/instalacion.md)
-* [El fichero docker-compose.yml](modulo4/docker-compose.md)
+* [El fichero docker-compose.yaml](modulo4/docker-compose.md)
 * [El comando docker compose](modulo4/comando.md)
 * [Almacenamiento con docker compose](modulo4/almacenamiento.md)
 * [Ejemplo 1: Despliegue de la aplicación Guestbook](modulo4/guestbook.md)

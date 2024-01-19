@@ -26,4 +26,4 @@ Hay algunas diferencias entre las dos versiones, pero se ha mantenido en un alto
 
 ---
 
-* [El fichero docker-compose.yml](docker-compose.md)
+* [El fichero docker-compose.yaml](docker-compose.md)
