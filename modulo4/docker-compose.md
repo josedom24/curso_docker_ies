@@ -35,4 +35,4 @@ Cuando creamos un escenario con `docker compose` se crea una **nueva red definid
 
 ---
 
-* [El comando docker-compose](comando.md)
+* [El comando docker compose](comando.md)
