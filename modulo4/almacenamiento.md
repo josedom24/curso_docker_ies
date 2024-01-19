@@ -1,8 +1,8 @@
-# Almacenamiento con docker-compose
+# Almacenamiento con Docker Compose
 
-## Definiendo volúmenes docker con docker-compose
+## Definiendo volúmenes docker con Docker Compose
 
-Además de definir los `services`, con docker-compose podemos definir los volúmenes que vamos a necesitar en nuestra infraestructura. Además, como hemos visto, podremos indicar que volumen va a utilizar cada contenedor.
+Además de definir los `services`, en el fichero `docker-compose.yaml` podemos definir los volúmenes que vamos a necesitar en nuestra infraestructura. Además, como hemos visto, podremos indicar que volumen va a utilizar cada contenedor.
 
 Veamos un ejemplo:
 
@@ -24,15 +24,15 @@ volumes:
 Y podemos iniciar el escenario:
 
 ```bash
-$ docker-compose up -d
-Creating network "docker-compose_default" with the default driver
-Creating volume "docker-compose_mariadb_data" with default driver
-Creating contenedor_mariadb ... done
+$ docker compose up -d
+[+] Running 3/3
+ ✔ Network mariadb_default        Created                                         0.1s 
+ ✔ Volume "mariadb_mariadb_data"  Created                                         0.0s 
+ ✔ Container contenedor_mariadb   Started                                         0.5s
 
-$ docker-compose ps
-       Name                    Command             State    Ports  
--------------------------------------------------------------------
-contenedor_mariadb   docker-entrypoint.sh mysqld   Up      3306/tcp
+$ docker compose ps
+NAME                 IMAGE     COMMAND                           SERVICE   CREATED              STATUS              PORTS
+contenedor_mariadb   mariadb   "docker-entrypoint.sh mariadbd"   db        About a minute ago   Up About a minute   3306/tcp
 ```
 
 Y comprobamos que se ha creado un nuevo volumen:
@@ -40,41 +40,29 @@ Y comprobamos que se ha creado un nuevo volumen:
 ```bash
 $ docker volume ls
 DRIVER    VOLUME NAME
-local     docker-compose_mariadb_data
+local     mariadb_mariadb_data
 ...
 ```
 
 En la definición del servicio `db` hemos indicado que el contenedor montará el volumen en un directorio determinado con el parámetro `volumes`. Podemos comprobar que efectivamente se ha realizado el montaje:
 
 ```bash
-$ docker inspect contenedor_mariadb
-...
-"Mounts": [
-    {
-        "Type": "volume",
-        "Name": "docker-compose_mariadb_data",
-        "Source": "/var/lib/docker/volumes/docker-compose_mariadb_data/_data",
-        "Destination": "/var/lib/mysql",
-        "Driver": "local",
-        "Mode": "rw",
-        "RW": true,
-        "Propagation": ""
-    }
-],
-...
+$ docker inspect -f '{{json .Mounts}}' contenedor_mariadb
+[{"Type":"volume","Name":"mariadb_mariadb_data","Source":"/var/lib/docker/volumes/mariadb_mariadb_data/_data","Destination":"/var/lib/mysql","Driver":"local","Mode":"z","RW":true,"Propagation":""}]
+
 ```
 
 Recuerda que si necesitas iniciar el escenario desde 0, debes eliminar el volumen:
 
 ```bash
-$ docker-compose down -v
-Stopping contenedor_mariadb ... done
-Removing contenedor_mariadb ... done
-Removing network docker-compose_default
-Removing volume docker-compose_mariadb_data
+$ $ docker compose down -v
+[+] Running 3/3
+ ✔ Container contenedor_mariadb  Removed                                          0.8s 
+ ✔ Volume mariadb_mariadb_data   Removed                                          0.1s 
+ ✔ Network mariadb_default       Removed                                          0.1s
 ```
 
-## Utilización de bind mount con docker-compose
+## Utilización de bind mount con Docker Compose
 
 De forma similar podemos indicar que un contenedor va a utilizar bind mount como almacenamiento. En este caso sería:
 
@@ -98,6 +86,10 @@ $ cd data/
 /data$ ls
 aria_log.00000001  aria_log_control  ibdata1  ib_logfile0  ibtmp1  mysql
 ```
+
+Hay que tener en cuenta que si usamos bind mount el comando `docker compose down -v` no eliminará el directorio donde se guardan los datos, en este caso `./data`.
+
+
 ---
 
 * [Ejemplo 1: Despliegue de la aplicación Guestbook](guestbook.md)
