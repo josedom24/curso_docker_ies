@@ -29,6 +29,22 @@ Algunas observaciones:
 
 ![temperaturas](img/temperaturas.png)
 
+## Configuración de la aplicación Temperaturas
+
+Como hemos indicado anteriormente, en la creación de la imagen `iesgn/temperaturas_frontend` se ha creado una variable de entorno (llamada `TEMP_SERVER`) donde se configura el nombre del servidor y el puero al que hay que tiene que acceder el microservicio `frontend` y que debe corresponder con el nombre y el puerto del microservicio `backend`. Por defecto esta variable tiene como valor `temperaturas-backend:5000`, por lo tanto, es necesario que el contenedor del `backend` se debe llamar `temperaturas-backend` y debe ofrecer el servicio en el puerto `5000`.
+
+Si creamos un contenedor `backend` con otro nombre, por ejemplo:
+
+```bash
+$ docker run -d --name temperaturas-api --network red_temperaturas iesgn/temperaturas_backend
+```
+
+Tendremos que configurar la aplicación `frontend` parea que acceda al `backend` usando como nombre `temperaturas-api`, por lo tanto en la creación tendremos que definir la variable de entorno `TEMP_SERVER`, para ello ejecutamos:
+
+```bash
+$ docker run -d -p 80:3000 --name temperaturas-frontend -e TEMP_SERVER=temperaturas-api:5000 --network red_temperaturas iesgn/temperaturas_frontend
+```
+
 ---
 
 * [Ejemplo 3: Despliegue de Wordpress + mariadb](wordpress.md)
