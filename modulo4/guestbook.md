@@ -16,7 +16,7 @@ services:
     environment:
       REDIS_SERVER: redis
     ports:
-      - 80:5000
+      - 8080:5000
   db:
     container_name: redis
     image: redis
@@ -72,6 +72,8 @@ Removing guestbook ... done
 Removing redis     ... done
 Removing network guestbook_default
 ```
+
+
 
 ---
 
