@@ -1,11 +1,11 @@
 # Ejemplo 2: Despliegue de la aplicación Temperaturas
 
-En este ejemplo vamos a desplegar con docker-compose la aplicación *Temperaturas*, que estudiamos en el módulo de redes: [Ejemplo 2: Despliegue de la aplicación Temperaturas](../modulo3/temperaturas.md).
+En este ejemplo vamos a desplegar con Docker Compose la aplicación *Temperaturas*, que estudiamos en el módulo de redes: [Ejemplo 2: Despliegue de la aplicación Temperaturas](../modulo3/temperaturas.md).
 
-Puedes encontrar el fichero `docker-compose.yml` en en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo4/ejemplo2) del repositorio. 
+Puedes encontrar el fichero `docker-compose.yaml` en en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo4/ejemplo2) del repositorio. 
 
 
-En este caso el fichero `docker-compose.yml` puede tener esta forma:
+En este caso el fichero `docker-compose.yaml` puede tener esta forma:
 
 ```yaml
 version: '3.1'
@@ -15,7 +15,9 @@ services:
     image: iesgn/temperaturas_frontend
     restart: always
     ports:
-      - 80:3000
+      - 8081:3000
+    environment:
+      TEMP_SERVER: temperaturas-backend:5000
     depends_on:
       - backend
   backend:
@@ -23,6 +25,8 @@ services:
     image: iesgn/temperaturas_backend
     restart: always
 ```
+
+Como hicimos en el ejemplo anterior, aunque no es necesario porque es valor por defecto, declaramos la variable de entorno `TEMP_SERVER: temperaturas-backend:5000`. Como indicábamos también, podríamos uso del nombre del servicio, de esta manera quedaría como `TTEMP_SERVER: backend:5000`.
 
 Para crear el escenario:
 
