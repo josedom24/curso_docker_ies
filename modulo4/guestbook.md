@@ -1,10 +1,10 @@
 # Ejemplo 1: Despliegue de la aplicación guestbook
 
-En este ejemplo vamos a desplegar con docker-compose la aplicación *guestbook*, que estudiamos en el módulo de redes: [Ejemplo 1: Despliegue de la aplicación Guestbook](../modulo3/guestbook.md).
+En este ejemplo vamos a desplegar con Docker Compose la aplicación *guestbook*, que estudiamos en el módulo de redes: [Ejemplo 1: Despliegue de la aplicación Guestbook](../modulo3/guestbook.md).
 
 Puedes encontrar el fichero `docker-compose.yml` en en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo4/ejemplo1) del repositorio. 
 
-En el fichero `docker-compose.yml` vamos a definir el escenario. El programa `docker-compose` se debe ejecutar en el directorio donde este ese fichero. 
+En el fichero `docker-compose.yaml` vamos a definir el escenario. El comando `docker compose` se debe ejecutar en el directorio donde este ese fichero. 
 
 ```yaml
 version: '3.1'
@@ -38,41 +38,43 @@ Veamos algunas observaciones:
 Para crear el escenario:
 
 ```bash
-$ docker-compose up -d
-Creating network "guestbook_default" with the default driver
-Creating guestbook ... done
-Creating redis     ... done
+$ docker compose up -d
+[+] Running 4/4
+ ✔ Network guestbook_default  Created                                                            0.3s 
+ ✔ Volume "guestbook_redis"   Created                                                            0.0s 
+ ✔ Container redis            Started                                                            0.5s 
+ ✔ Container guestbook        Started                                                            0.5s
 ```
 
 Para listar los contenedores:
 
 ```bash
-$ docker-compose ps
-  Name                 Command               State          Ports        
--------------------------------------------------------------------------
-guestbook   python3 app.py                   Up      0.0.0.0:80->5000/tcp
-redis       docker-entrypoint.sh redis ...   Up      6379/tcp            
+$ docker compose ps
+NAME        IMAGE             COMMAND                                                SERVICE   CREATED          STATUS          PORTS
+guestbook   iesgn/guestbook   "python3 app.py"                                       app       18 seconds ago   Up 16 seconds   0.0.0.0:8080->5000/tcp, :::8080->5000/tcp
+redis       redis             "docker-entrypoint.sh redis-server --appendonly yes"   db        18 seconds ago   Up 16 seconds   6379/tcp
 ```
 
 Para parar los contenedores:
 
 ```bash
-$ docker-compose stop 
-Stopping guestbook    ... done
-Stopping redis ... done
+$ docker compose stop
+[+] Stopping 2/2
+ ✔ Container guestbook  Stopped                                                                  0.8s 
+ ✔ Container redis      Stopped                                                                  0.8s 
 ```
 
 Para eliminar el escenario:
 
 ```bash
-docker-compose down
-Stopping guestbook ... done
-Stopping redis     ... done
-Removing guestbook ... done
-Removing redis     ... done
-Removing network guestbook_default
+$ docker compose down
+[+] Running 3/3
+ ✔ Container redis            Removed                                                            0.0s 
+ ✔ Container guestbook        Removed                                                            0.0s 
+ ✔ Network guestbook_default  Removed                                                            0.3s 
 ```
 
+Recuerda que para eliminar también el volumen usaremos `docker compose down -v`.
 
 
 ---
