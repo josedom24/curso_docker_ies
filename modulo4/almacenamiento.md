@@ -2,7 +2,7 @@
 
 ## Definiendo volúmenes docker con docker-compose
 
-Además de definir los `services`, con docker-compose podemos definir los volúmenes que vamos a necesitar en nuestra infraestructura. Además, como hemos visto, podremos indicar que volúmen va a utilizar cada contenedor.
+Además de definir los `services`, con docker-compose podemos definir los volúmenes que vamos a necesitar en nuestra infraestructura. Además, como hemos visto, podremos indicar que volumen va a utilizar cada contenedor.
 
 Veamos un ejemplo:
 

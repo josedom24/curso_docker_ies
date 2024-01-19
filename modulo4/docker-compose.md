@@ -1,9 +1,9 @@
 # El fichero docker-compose.yml
 
-En el fichero `docker-compose.yml` vamos a definir el escenario. **los comandos `docker compose` se deben ejecutar en el directorio donde este ese fichero**. Por lo tanto tenderemos un directorio con un fichero `docker-compose.yml` para cada una las aplicaciones que queremos desplegar. Por ejemplo para la ejecución de la aplicación [Let's Chat](https://github.com/sdelements/lets-chat) podríamos tener un fichero `docker-compose.yaml`, dentro de una carpeta, con el siguiente contenido:
+En el fichero `docker-compose.yml` vamos a definir el escenario. **los comandos `docker compose` se deben ejecutar en el directorio donde este ese fichero**. Por lo tanto tenderemos un directorio con un fichero `docker-compose.yaml` para cada una las aplicaciones que queremos desplegar. Por ejemplo para la ejecución de la aplicación [Let's Chat](https://github.com/sdelements/lets-chat) podríamos tener un fichero `docker-compose.yaml`, dentro de una carpeta, con el siguiente contenido:
 
 ```yaml
-version: '3.8'
+version: '3.1'
 services:
   app:
     container_name: letschat
@@ -17,10 +17,12 @@ services:
       - db
   db:
     container_name: mongo
-    image: mongo
+    image: mongo:4
     restart: always
     volumes:
-      - /opt/mongo:/data/db
+      - mongo:/data/db
+volumes:
+  mongo:
 ```
 
 Puedes encontrar todos los parámetros que podemos definir en la [documentación oficial](https://docs.docker.com/compose/compose-file/compose-file-v3/).
