@@ -30,11 +30,11 @@ Curso sobre contenedores Docker.
 * [Ejemplo 3: Despliegue de Wordpress + mariadb](modulo3/wordpress.md)
 * [Ejemplo 4: Despliegue de tomcat + nginx](modulo3/tomcat.md)
 
-## 4. Creando escenarios multicontenedor con docker-compose 
-* [Creando escenarios multicontenedor con docker-compose](modulo4/instalacion.md)
+## 4. Creando escenarios multicontenedor con Docker Compose 
+* [Creando escenarios multicontenedor con Docker Compose](modulo4/instalacion.md)
 * [El fichero docker-compose.yml](modulo4/docker-compose.md)
-* [El comando docker-compose](modulo4/comando.md)
-* [Almacenamiento con docker-compose](modulo4/almacenamiento.md)
+* [El comando docker compose](modulo4/comando.md)
+* [Almacenamiento con docker compose](modulo4/almacenamiento.md)
 * [Ejemplo 1: Despliegue de la aplicación Guestbook](modulo4/guestbook.md)
 * [Ejemplo 2: Despliegue de la aplicación Temperaturas](modulo4/temperaturas.md)
 * [Ejemplo 3: Despliegue de Wordpress + mariadb](modulo4/wordpress.md)
