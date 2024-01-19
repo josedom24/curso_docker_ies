@@ -36,6 +36,22 @@ Algunas observaciones:
 
 ![guestbook](img/guestbook.png)
 
+## Configuración de la aplicación guestbook
+
+Como hemos indicado anteriormente, en la creación de la imagen `iesgn/guestbook` se ha creado una variable de entorno donde se configura el nombre del servidor de base de datos redis al que se accede, por defecto el valor de esta variable es `redis`. Por lo tanto, es necesario que el contenedor de la base de datos tenga el nombre `redis` para que el contendor de guestbook pueda conectar a la base de datos.
+
+Si creamos un contnedor redis con otro nombre, por ejemplo:
+
+```bash
+$ docker run -d --name contenedor_redis --network red_guestbook -v /opt/redis:/data redis redis-server --appendonly yes
+```
+
+Tendremos que configurar la aplicación guestbook parea que acceda a la base de datos redis usando como nombre `contenedor_redis`, por lo tanto en la creación tendremos que definir la variable de entorno `REDIS_SERVER`, para ello ejecutamos:
+
+```bash
+$ docker run -d -p 80:5000 --name guestbook -e REDIS_SERVER=contenedor_redis --network red_guestbook iesgn/guestbook
+```
+
 ---
 
 * [Ejemplo 2: Despliegue de la aplicación Temperaturas](temperaturas.md)
