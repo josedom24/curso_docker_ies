@@ -14,14 +14,16 @@ Dockerfile  public_html
 En este caso vamos a usar una imagen base de un sistema operativo sin ningún servicio. El fichero `Dockerfile` será el siguiente:
 
 ```Dockerfile
-FROM debian
+# syntax=docker/dockerfile:1
+FROM debian:stable-slim
 RUN apt-get update && apt-get install -y apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
-ADD public_html /var/www/html/
+WORKDIR /var/www/html/
+COPY public_html .
 EXPOSE 80
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 ```
 
-Al usar una imagen base `debian` tenemos que instalar los paquetes necesarios para tener el servidor web, en este acaso apache2. A continuación añadiremos el contenido del directorio `public_html` al directorio `/var/www/html/` del contenedor y finalmente indicamos el comando que se deberá ejecutar al crear un contenedor a partir de esta imagen: iniciamos el servidor web en segundo plano.
+Al usar una imagen base `debian:stable-slim` tenemos que instalar los paquetes necesarios para tener el servidor web, en este acaso apache2. A continuación añadiremos el contenido del directorio `public_html` al directorio `/var/www/html/` del contenedor y finalmente indicamos el comando que se deberá ejecutar al crear un contenedor a partir de esta imagen: iniciamos el servidor web en segundo plano.
 
 Para crear la imagen ejecutamos:
 
@@ -53,8 +55,9 @@ Y acceder con el navegador a nuestra página:
 En este caso el fichero `Dockerfile` sería el siguiente:
 
 ```Dockerfile
+# syntax=docker/dockerfile:1
 FROM httpd:2.4
-ADD public_html /usr/local/apache2/htdocs/
+COPY public_html /usr/local/apache2/htdocs/
 EXPOSE 80
 ```
 
@@ -72,8 +75,9 @@ $ docker run -d -p 80:80 --name ejemplo1 josedom24/ejemplo1:v2
 En este caso el fichero `Dockerfile` sería:
 
 ```Dockerfile
-FROM nginx
-ADD public_html /usr/share/nginx/html
+# syntax=docker/dockerfile:1
+FROM nginx:1.24
+COPY public_html /usr/share/nginx/html
 EXPOSE 80
 ```
 

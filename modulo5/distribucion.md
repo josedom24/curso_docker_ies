@@ -1,6 +1,6 @@
 # Distribución de imágenes
 
-Una vez que hemos creado nuestra imagen personalizada, es la hora de destribuirla para desplegarla en el entorno de producción. Para ello vamos a tener varias posibilidades:
+Una vez que hemos creado nuestra imagen personalizada, es la hora de distribuirla para desplegarla en el entorno de producción. Para ello vamos a tener varias posibilidades:
 
 
 1. Utilizar la secuencia de órdenes `docker commit` /` docker save` / `docker load`. En este caso la distribución se producirá a partir de un fichero.
