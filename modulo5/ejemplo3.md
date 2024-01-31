@@ -8,10 +8,10 @@ En este caso vamos a usar una imagen base de un sistema operativo sin ningún se
 
 ```Dockerfile
 # syntax=docker/dockerfile:1
-FROM debian:stabble-slim
+FROM debian:stable-slim
 RUN apt-get update && apt-get install -y python3-pip  && apt-get clean && rm -rf /var/lib/apt/lists/*
-COPY app /usr/share/app
 WORKDIR /usr/share/app
+COPY app .
 RUN pip3 install --no-cache-dir -r requirements.txt
 EXPOSE 3000
 CMD python3 app.py
@@ -48,6 +48,20 @@ $ docker run -d -p 80:3000 --name ejemplo2 josedom24/ejemplo3:v1
 Y acceder con el navegador a nuestra página:
 
 ![ejemplo3](img/ejemplo3.png)
+
+## Versión 2: Desde una imagen con python instalado
+
+En este caso el dichero `Dockerfile` podría ser de esta manera:
+
+```Dockerfile
+# syntax=docker/dockerfile:1
+FROM python:3.12.1-bookworm
+WORKDIR /usr/share/app
+COPY app .
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 3000
+CMD python app.py
+```
 
 ---
 
