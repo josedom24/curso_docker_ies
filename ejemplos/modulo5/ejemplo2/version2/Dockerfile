@@ -1,5 +1,6 @@
+# syntax=docker/dockerfile:1
 FROM php:7.4-apache
-ADD app /var/www/html/
+COPY app /var/www/html/
 EXPOSE 80
 
 

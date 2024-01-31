@@ -7,7 +7,8 @@ En el contexto vamos a tener el fichero `Dockerfile` y un directorio, llamado `a
 En este caso vamos a usar una imagen base de un sistema operativo sin ningún servicio. El fichero `Dockerfile` será el siguiente:
 
 ```Dockerfile
-FROM debian
+# syntax=docker/dockerfile:1
+FROM debian:stabble-slim
 RUN apt-get update && apt-get install -y python3-pip  && apt-get clean && rm -rf /var/lib/apt/lists/*
 COPY app /usr/share/app
 WORKDIR /usr/share/app

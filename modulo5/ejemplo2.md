@@ -1,6 +1,6 @@
 # Ejemplo 2: Construcción de imágenes con una una aplicación PHP
 
-En este ejemplo vamos a crear una imágen con una página desarrollada con PHP. Vamos a crear dos versiones de la imagen, y puedes encontrar los ficheros en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo5/ejemplo2) del repositorio.
+En este ejemplo vamos a crear una imagen con una página desarrollada con PHP. Vamos a crear dos versiones de la imagen, y puedes encontrar los ficheros en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo5/ejemplo2) del repositorio.
 
 ## Versión 1: Desde una imagen base
 
@@ -9,15 +9,16 @@ En el contexto vamos a tener el fichero `Dockerfile` y un directorio, llamado `a
 En este caso vamos a usar una imagen base de un sistema operativo sin ningún servicio. El fichero `Dockerfile` será el siguiente:
 
 ```Dockerfile
-FROM debian
+# syntax=docker/dockerfile:1
+FROM debian:stable-slim
 RUN apt-get update && apt-get install -y apache2 libapache2-mod-php7.4 php7.4 && apt-get clean && rm -rf /var/lib/apt/lists/*
-ADD app /var/www/html/
+COPY app /var/www/html/
 RUN rm /var/www/html/index.html
 EXPOSE 80
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 ```
 
-Al usar una imagen base `debian` tenemos que instalar los paquetes necesarios para tener el servidor web, php y las librerias necesarias. Eliminamos el A continuación añadiremos el contenido del directorio `app` al directorio `/var/www/html/` del contenedor. Hemos borrado el fichero `/var/www/html/index.html` para que no sea el que se muestre por defecto y finalmente indicamos el comando que se deberá ejecutar al crear un contenedor a partir de esta imagen: iniciamos el servidor web en segundo plano.
+Al usar una imagen base `debian:stable-slim` tenemos que instalar los paquetes necesarios para tener el servidor web, php y las librerias necesarias. Eliminamos el A continuación añadiremos el contenido del directorio `app` al directorio `/var/www/html/` del contenedor. Hemos borrado el fichero `/var/www/html/index.html` para que no sea el que se muestre por defecto y finalmente indicamos el comando que se deberá ejecutar al crear un contenedor a partir de esta imagen: iniciamos el servidor web en segundo plano.
 
 Para crear la imagen ejecutamos:
 
@@ -53,8 +54,9 @@ La aplicación tiene un fichero `info.php`que me da información sobre PHP, en e
 En este caso el fichero `Dockerfile` sería el siguiente:
 
 ```Dockerfile
+# syntax=docker/dockerfile:1
 FROM php:7.4-apache
-ADD app /var/www/html/
+COPY app /var/www/html/
 EXPOSE 80
 ```
 

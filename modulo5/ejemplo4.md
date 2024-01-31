@@ -85,6 +85,7 @@ Son las instrucciones sql que nos permiten crear la tabla necesaria en la base d
 El fichero`Dockerfile` sería el siguiente:
 
 ```Dockerfile
+# syntax=docker/dockerfile:1
 FROM php:7.4-apache
 RUN apt-get update && apt-get install -y mariadb-client
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
