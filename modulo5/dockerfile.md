@@ -21,22 +21,22 @@ La primera línea a añadir a un Dockerfile es una directiva `# syntax=docker/do
 
 Las principales instrucciones que podemos usar:
 
-* **FROM**: Sirve para especificar la imagen sobre la que voy a construir la mía. Ejemplo: `FROM php:7.4-apache`.
-* **RUN**: Ejecuta una orden creando una nueva capa. Su sintaxis es `RUN orden` / `RUN ["orden","param1","param2"]`. Ejemplo: `RUN apt update && apt install -y git`. En este caso es muy importante que pongamos la opción `-y` porque en el proceso de construcción no puede haber interacción con el usuario.
+* **FROM**: Sirve para especificar la imagen sobre la que vamos a construir la nueva.
+* **RUN**: Ejecuta una orden creando una nueva capa.  Ejemplo: `RUN apt update && apt install -y git`. En este caso es muy importante que pongamos la opción `-y` porque en el proceso de construcción no puede haber interacción con el usuario.
 * **WORKDIR**: Establece el directorio de trabajo dentro de la imagen que estoy creando, las siguientes instrucciones se ejecutarán en este directorio.
-* **COPY**: Para copiar ficheros desde mi equipo a la imagen. Esos ficheros deben estar en el mismo contexto (carpeta o repositorio). Su sintaxis es `COPY [--chown=<usuario>:<grupo>] src dest`. Por ejemplo: `COPY --chown=www-data:www-data myapp /var/www/html`.
+* **COPY**: Para copiar ficheros desde mi equipo a la imagen. Esos ficheros deben estar en el mismo contexto (carpeta o repositorio). Su sintaxis es `COPY [--chown=<usuario>:<grupo>] src dest`. 
 * **ADD**: Es similar a COPY pero tiene funcionalidades adicionales como especificar URLs  y tratar archivos comprimidos.
-* **LABEL**: Sirve para añadir metadatos a la imagen mediante clave=valor. Ejemplo: `LABEL company=iesalixar`.
-* **EXPOSE**: Nos da información acerca de qué puertos tendrá abiertos el contenedor cuando se cree uno en base a la imagen que estamos creando. Es meramente informativo.  Ejemplo: `EXPOSE 80`.
-* **ENV**: Para establecer variables de entorno dentro del contenedor. Puede ser usado posteriormente en las órdenes RUN añadiendo $ delante de el nombre de la variable de entorno. Ejemplo: `ENV WEB_DOCUMENT_ROOT=/var/www/html`. No se puede usar con ENTRYPOINT Y CMD.
-* **ENTRYPOINT**: Para establecer el ejecutable que se lanza siempre  cuando se crea el contenedor  con `docker run`, salvo que se especifique expresamente algo diferente con el flag `--entrypoint`. Su síntaxis es la siguiente: `ENTRYPOINT <command>` / `ENTRYPOINT ["executable","param1","param2"]`. Ejemplo: `ENTRYPOINT ["/usr/sbin/apache2ctl","-D","FOREGROUND"]`.
-* **CMD**: Para establecer el ejecutable por defecto (salvo que se sobreescriba desde la orden `docker run`) o para especificar parámetros para un `ENTRYPOINT`. Si tengo varios sólo se ejecuta el último. Su sintaxis es `CMD param1 param2` / `CMD ["param1","param2"]` / `CMD["command","param1"]`. Ejemplo: `CMD [“-c” “/etc/nginx.conf”]`  / `ENTRYPOINT [“nginx”]`. 
+* **LABEL**: Sirve para añadir metadatos a la imagen mediante clave=valor.
+* **EXPOSE**: Nos da información acerca de qué puertos tendrá abiertos el contenedor cuando se cree uno en base a la imagen que estamos creando. Es meramente informativo.  
+* **ENV**: Para establecer variables de entorno dentro del contenedor. Puede ser usado posteriormente en las órdenes RUN añadiendo $ delante de el nombre de la variable de entorno. 
+* **ENTRYPOINT**: Para establecer el ejecutable que se lanza siempre  cuando se crea el contenedor  con `docker run`. El comando no se puede cambiar al crear el contenedor.
+* **CMD**: Para establecer el ejecutable por defecto (salvo que se sobreescriba desde la orden `docker run`).
 
 Para una descripción completa sobre el fichero `Dockerfile`, puedes acceder a la [documentación oficial](https://docs.docker.com/engine/reference/builder/).
 
 ## Construyendo imágenes con docker build
 
-El comando `docker build` construye la nueva imagen leyendo las instrucciones del fichero `Dockerfile` y la información de un **entorno**, que para nosotros va a ser un directorio (aunque también podemos guardar información, por ejemplo, en un repositorio git).
+El comando `docker build` construye la nueva imagen leyendo las instrucciones del fichero `Dockerfile` y la información de un **entorno**, que para nosotros va a ser un directorio.
 
 La creación de la imagen es ejecutada por el *docker engine*, que recibe toda la información del entorno, por lo tanto es recomendable guardar el `Dockerfile` en un directorio vacío y añadir los ficheros necesarios para la creación de la imagen. El comando `docker build` ejecuta las instrucciones de un `Dockerfile` línea por línea y va mostrando los resultados en pantalla.
 
@@ -66,7 +66,7 @@ FROM debian:stable-slim
 RUN apt-get update  && apt-get install -y  apache2 
 WORKDIR /var/www/html
 COPY index.html .
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD apache2ctl -D FOREGROUND
 ```
 
 Para crear la imagen uso el comando `docker build`, indicando el nombre de la nueva imagen (opción `-t`) y indicando el directorio **contexto**.

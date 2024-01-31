@@ -4,4 +4,4 @@ RUN apt-get update && apt-get install -y apache2 && apt-get clean && rm -rf /var
 WORKDIR /var/www/html/
 COPY public_html .
 EXPOSE 80
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD apache2ctl -D FOREGROUND

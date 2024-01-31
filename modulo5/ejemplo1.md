@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y apache2 && apt-get clean && rm -rf /var
 WORKDIR /var/www/html/
 COPY public_html .
 EXPOSE 80
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD apache2ctl -D FOREGROUND
 ```
 
 Al usar una imagen base `debian:stable-slim` tenemos que instalar los paquetes necesarios para tener el servidor web, en este acaso apache2. A continuación añadiremos el contenido del directorio `public_html` al directorio `/var/www/html/` del contenedor y finalmente indicamos el comando que se deberá ejecutar al crear un contenedor a partir de esta imagen: iniciamos el servidor web en segundo plano.
