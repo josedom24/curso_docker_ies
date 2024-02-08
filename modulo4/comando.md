@@ -35,7 +35,7 @@ docker compose up -d
  ✔ Container letschat                Started                                      0.2s 
 ```
 
-Tenemos que tener en cuenta que si no tenemos las imágenes en nuestro registro local, se descargarán. Además podemos ver cómo se ha creado una red definida por el usuario llamada `letschat_mongo_letschat`.
+Tenemos que tener en cuenta que si no tenemos las imágenes en nuestro registro local, se descargarán. Además podemos ver cómo se ha creado una red definida por el usuario llamada `letschat_default`.
 
 Podemos ver los contenedores que se están ejecutando:
 
