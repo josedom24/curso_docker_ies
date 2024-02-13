@@ -1,6 +1,6 @@
 # Ejemplo 1: Construcción de imágenes con una página estática
 
-En este ejemplo vamos a crear una imágen con una página estática. Vamos a crear tres versiones de la imagen, y puedes encontrar los ficheros en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo5/ejemplo1) del repositorio.
+En este ejemplo vamos a crear una imagen con una página estática. Vamos a crear tres versiones de la imagen, y puedes encontrar los ficheros en este [directorio](https://github.com/josedom24/curso_docker_ies/tree/main/ejemplos/modulo5/ejemplo1) del repositorio.
 
 ## Versión 1: Desde una imagen base
 
