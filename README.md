@@ -48,4 +48,5 @@ Curso sobre contenedores Docker.
 * [Ejemplo 2: Construcción de imágenes con una una aplicación PHP](modulo5/ejemplo2.md)
 * [Ejemplo 3: Construcción de imágenes con una una aplicación Python](modulo5/ejemplo3.md)
 * [Ejemplo 4: Construcción de imágenes configurables con variables de entorno](modulo5/ejemplo4.md)
+* [Ejemplo 5: Configuración de imágenes con una aplicación Java](modulo5/ejemplo5.md)
 * [Ciclo de vida de las aplicaciones](modulo5/ciclo_vida.md)
