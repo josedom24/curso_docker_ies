@@ -13,7 +13,7 @@ $ docker volume create miweb
 miweb
 ```
 
-A continuación creamos un contenedor con el volumen asociado, usando `--mount`, y creamos un fichero `index.html`:
+A continuación creamos un contenedor con el volumen asociado, usando `-v`, y creamos un fichero `index.html`:
 
 ```bash
 $ docker run -d --name my-apache-app -v miweb:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
